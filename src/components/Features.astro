@@ -1,34 +1,34 @@
 ---
 const FEATURES = [
   {
-    title: "Aislamiento Estricto Multi-Tenant",
-    description: "Cada empresa cliente opera en un workspace aislado. Las queries y los webhooks se enrutan de forma segura validando el HMAC específico y su respectivo orgId.",
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>`
+    title: "Atención 24/7 en WhatsApp",
+    description: "Tu negocio nunca cierra. El recepcionista IA responde a tus clientes a cualquier hora del día o de la noche, los fines de semana y feriados incluidos.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`
   },
   {
-    title: "Facturación Precisa de IA",
-    description: "Rastreamos cada llamada de OpenAI en microcentavos agregándolos a la tabla llm_usage por organización, lo que te permite facturar exactamente lo consumido.",
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`
+    title: "Calificación Automática de Leads",
+    description: "El bot identifica a los clientes con mayor potencial de compra, recopila sus datos clave y los clasifica para que tu equipo solo invierta tiempo en los mejores prospectos.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`
   },
   {
-    title: "Google Calendar & Meet OAuth",
-    description: "Cada cliente final realiza la autorización oficial de Google. El bot busca huecos en sus agendas, crea el evento directamente y asocia el link de Google Meet.",
+    title: "Agendamiento en Google Calendar",
+    description: "Las citas se crean automáticamente en el calendario de tu negocio con enlace de Google Meet incluido. Sin doble reserva, sin llamadas perdidas.",
     icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`
   },
   {
-    title: "Cifrado AES-256-GCM At-Rest",
-    description: "Los tokens de acceso de WhatsApp Business (WABA), App Secrets y refresh tokens de Google se almacenan totalmente cifrados con algoritmos criptográficos robustos.",
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11.571V9a4 4 0 00-8 0v1.571c0 1.948.31 3.821.883 5.578M12 11a13.908 13.908 0 005.247 8.04l.054.09M22 10.571V9a4 4 0 00-8 0v1.571c0 1.948-.31 3.821-.883 5.578"/></svg>`
+    title: "Cumplimiento con Meta 2026",
+    description: "Handl está diseñado bajo las normativas oficiales de WhatsApp Business API. Evita bloqueos de números y protege la reputación de tu negocio.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`
   },
   {
-    title: "Onboarding Fluido por Invitación",
-    description: "Como plataforma administrador, generas links de invitación únicos de 7 días. Tus clientes se auto-registran y configuran sus números sin fricciones.",
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>`
+    title: "Onboarding en Minutos",
+    description: "Configura tu recepcionista de WhatsApp en pocos pasos. Sin instalaciones complicadas, sin equipo técnico. Te guiamos en todo el proceso.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`
   },
   {
-    title: "Control de Flujo Asíncrono",
-    description: "Equipado con BullMQ y Redis para manejar picos de tráfico. Encolamiento de eventos de webhook de Meta y enrutado de respuestas para evitar cuellos de botella.",
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`
+    title: "Escalabilidad sin Límites",
+    description: "Atiende cientos de conversaciones simultáneas sin perder calidad. La infraestructura crece con tu negocio sin costos ocultos.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`
   }
 ];
 ---
@@ -42,14 +42,14 @@ const FEATURES = [
     <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
       <div class="max-w-xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-brand-purple/30 bg-brand-purple/10 px-3 py-1 text-xs text-brand-purple font-medium mb-4">
-          Arquitectura SaaS
+          Beneficios Clave
         </div>
         <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-          Construido Para Escalar Como un Negocio Real
+          Todo lo que tu Negocio Necesita en un Solo Lugar
         </h2>
       </div>
       <p class="text-gray-400 max-w-md leading-relaxed">
-        Handl no es solo un script de automatización. Es una infraestructura robusta diseñada bajo estándares multi-tenant y de seguridad empresarial listos para producción.
+        Handl no es solo un chatbot. Es un recepcionista virtual completo que trabaja por ti las 24 horas del día, los 7 días de la semana.
       </p>
     </div>
 
