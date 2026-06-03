@@ -1,0 +1,145 @@
+---
+const STEPS = [
+  {
+    num: "01",
+    title: "Webhook Meta",
+    desc: "El cliente envía un mensaje. El webhook de WhatsApp Cloud API entra a Fastify en milisegundos."
+  },
+  {
+    num: "02",
+    title: "Enrutador HMAC",
+    desc: "Validamos la autenticidad con el App Secret del tenant y enrutamos leyendo el phone_number_id."
+  },
+  {
+    num: "03",
+    title: "Cola en BullMQ",
+    desc: "El evento se persiste en PostgreSQL y se encola en Redis/BullMQ para procesar en segundo plano de forma asíncrona."
+  },
+  {
+    num: "04",
+    title: "OpenAI LLM Engine",
+    desc: "Un worker procesa la conversación usando el LLM de OpenAI con las FAQs y la personalidad de la organización."
+  },
+  {
+    num: "05",
+    title: "Acción & Google Calendar",
+    desc: "Si se confirma fecha/hora, la IA dispara una Tool Call para crear la cita vía Google Calendar OAuth."
+  },
+  {
+    num: "06",
+    title: "Respuesta de WhatsApp",
+    desc: "Enviamos la confirmación al cliente y registramos el costo exacto de tokens consumidos en llm_usage."
+  }
+];
+---
+
+<section id="arquitectura" class="py-20 relative overflow-hidden bg-brand-dark border-t border-white/5">
+  <div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  
+  <div class="mx-auto max-w-7xl px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 rounded-full border border-brand-purple/30 bg-brand-purple/10 px-3 py-1 text-xs text-brand-purple font-medium mb-4">
+        Flujo de Datos
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
+        Arquitectura del Ciclo de Vida del Mensaje
+      </h2>
+      <p class="text-gray-400">
+        Entiende cómo viajan los datos desde que un cliente escribe en WhatsApp hasta que se genera una cita de Google Calendar y se registra el costo en tu base de datos.
+      </p>
+    </div>
+
+    <!-- Tech Stack Cards (Grid) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+      <!-- Fastify -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-brand-green font-mono">FASTIFY</span>
+        <div class="text-sm font-bold text-white mt-1">apps/api</div>
+      </div>
+      <!-- Next.js -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-brand-purple font-mono">NEXT.JS 15</span>
+        <div class="text-sm font-bold text-white mt-1">apps/web</div>
+      </div>
+      <!-- Drizzle -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-yellow-500 font-mono">DRIZZLE ORM</span>
+        <div class="text-sm font-bold text-white mt-1">PostgreSQL</div>
+      </div>
+      <!-- BullMQ -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-pink-500 font-mono">BULLMQ</span>
+        <div class="text-sm font-bold text-white mt-1">Colas / Redis</div>
+      </div>
+      <!-- OpenAI -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-blue-400 font-mono">OPENAI API</span>
+        <div class="text-sm font-bold text-white mt-1">LLM / Tools</div>
+      </div>
+      <!-- Google OAuth -->
+      <div class="rounded-xl border border-white/5 bg-brand-surface/20 p-4 text-center backdrop-blur-xl">
+        <span class="text-xs font-semibold text-orange-500 font-mono">GOOGLE OAUTH</span>
+        <div class="text-sm font-bold text-white mt-1">Google Calendar</div>
+      </div>
+    </div>
+
+    <!-- Pipeline Steps (Process Flow) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {STEPS.map((step) => (
+        <div class="relative rounded-2xl border border-white/5 bg-brand-surface/30 p-6 backdrop-blur-xl overflow-hidden group">
+          <!-- Big floating number background -->
+          <div class="absolute -top-6 -right-6 font-display font-extrabold text-7xl text-white/5 select-none transition-transform duration-300 group-hover:scale-110">
+            {step.num}
+          </div>
+          
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand-purple/10 text-brand-purple font-mono font-bold text-xs mb-4">
+            {step.num}
+          </span>
+          <h3 class="font-display text-base font-bold text-white mb-2">
+            {step.title}
+          </h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            {step.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Repository Callout -->
+    <div id="contacto" class="mt-20 rounded-3xl border border-brand-purple/20 bg-gradient-to-r from-brand-purple/10 via-brand-surface/30 to-brand-green/5 p-8 sm:p-12 text-center relative overflow-hidden backdrop-blur-2xl">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-brand-purple/10 rounded-full blur-[80px] pointer-events-none -z-10"></div>
+      
+      <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mb-4">
+        ¿Listo para desplegar tu propio SaaS de AI Receptionists?
+      </h3>
+      <p class="text-gray-400 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+        Handl está disponible de forma abierta y gratuita bajo el nombre de repositorio <strong>Fa-setter</strong>. Clona el proyecto, conecta tus tokens y lánzalo hoy mismo.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="https://github.com/FreeAgentsDev/Fa-setter" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-purple to-brand-green p-[1.5px] font-semibold text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(139,92,246,0.4)]"
+        >
+          <span class="w-full rounded-[10px] bg-brand-dark px-6 py-3 text-sm transition-colors duration-300 hover:bg-transparent flex items-center justify-center gap-2">
+            Ver Código en GitHub
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </span>
+        </a>
+        <a 
+          href="#demo" 
+          class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
+        >
+          Probar Demo de Nuevo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

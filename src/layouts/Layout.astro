@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Handl by freeagents — AI Receptionists para WhatsApp", 
+	description = "Plataforma multi-tenant de contestadores automáticos con IA para WhatsApp. Filtra leads, califica interesados y agenda reuniones en Google Calendar de forma 100% automatizada." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://handl.freeagents.dev/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://handl.freeagents.dev/og-image.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://handl.freeagents.dev/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="https://handl.freeagents.dev/og-image.png" />
+
+		<!-- Preconnect to Google Fonts for performance -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	</head>
+	<body class="bg-brand-dark text-gray-100 min-h-screen selection:bg-brand-purple/30 selection:text-white relative">
+		<!-- Background Glow Effects -->
+		<div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-brand-purple/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+		<div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-green/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+		
+		<slot />
+
+		<!-- Simple dynamic animations helper -->
+		<script>
+			// Add active state to nav links on scroll
+			const sections = document.querySelectorAll('section[id]');
+			const navLinks = document.querySelectorAll('nav a');
+
+			window.addEventListener('scroll', () => {
+				let current = '';
+				const scrollY = window.pageYOffset;
+				
+				sections.forEach((section) => {
+					const sectionTop = (section as HTMLElement).offsetTop - 120;
+					const sectionHeight = (section as HTMLElement).offsetHeight;
+					if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+						current = section.getAttribute('id') || '';
+					}
+				});
+
+				navLinks.forEach((link) => {
+					link.classList.remove('text-brand-purple', 'font-semibold');
+					if (link.getAttribute('href') === `#${current}`) {
+						link.classList.add('text-brand-purple', 'font-semibold');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

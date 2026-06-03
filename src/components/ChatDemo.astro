@@ -1,0 +1,323 @@
+---
+---
+
+<section id="demo" class="py-20 relative overflow-hidden bg-brand-dark/40 border-t border-white/5">
+  <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Header Section -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
+        Mira a Handl en Acción
+      </h2>
+      <p class="text-gray-400">
+        Interactúa con nuestro simulador y observa cómo el contestador con IA califica, responde objeciones, ejecuta herramientas en segundo plano y agenda citas en tiempo real.
+      </p>
+    </div>
+
+    <!-- Interactive Simulator Wrapper -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      
+      <!-- Control Panel (Left Column) -->
+      <div class="lg:col-span-5 flex flex-col justify-center gap-6">
+        <h3 class="font-display text-xl font-bold text-white mb-2">Selecciona un Escenario:</h3>
+        
+        <!-- Scenario Buttons -->
+        <div class="flex flex-col gap-4">
+          <!-- Button 1 -->
+          <button 
+            id="btn-scen-medical" 
+            class="scenario-btn text-left p-4 rounded-xl border border-brand-purple/20 bg-brand-purple/5 hover:bg-brand-purple/10 hover:border-brand-purple/40 transition-all duration-300 group"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-display font-semibold text-white group-hover:text-brand-purple transition-colors">Agendamiento Médico</span>
+              <span class="text-xs text-brand-purple font-mono">Clínica Dental</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              El paciente pide una cita de urgencia, la IA valida disponibilidad, califica el síntoma y agenda en Google Calendar con link de Meet para teleconsulta.
+            </p>
+          </button>
+
+          <!-- Button 2 -->
+          <button 
+            id="btn-scen-restaurant" 
+            class="scenario-btn text-left p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300 group"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-display font-semibold text-white group-hover:text-brand-green transition-colors">Reserva de Restaurante</span>
+              <span class="text-xs text-brand-green font-mono">Bistró Gourmet</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Un comensal solicita mesa para esta noche. El bot gestiona restricciones alimenticias (vegano), número de personas y confirma la reserva al instante.
+            </p>
+          </button>
+
+          <!-- Button 3 -->
+          <button 
+            id="btn-scen-realestate" 
+            class="scenario-btn text-left p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300 group"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-display font-semibold text-white group-hover:text-blue-400 transition-colors">Calificación Inmobiliaria</span>
+              <span class="text-xs text-blue-400 font-mono">Bienes Raíces</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Filtra leads fríos que preguntan por una casa de interés social. La IA califica presupuesto y estatus crediticio antes de transferir a un asesor.
+            </p>
+          </button>
+        </div>
+
+        <!-- Info Card -->
+        <div class="rounded-xl border border-white/5 bg-white/[0.01] p-4 text-xs text-gray-500 flex items-start gap-3 mt-4">
+          <svg class="w-5 h-5 text-brand-purple shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="leading-relaxed">
+            <strong class="text-gray-300">Nota técnica:</strong> Durante el chat, verás notificaciones especiales en <span class="text-brand-purple font-semibold">color violeta</span> que muestran cuándo la IA decide ejecutar una herramienta en segundo plano (como consultar o escribir en la base de datos y Google Calendar).
+          </p>
+        </div>
+      </div>
+
+      <!-- Phone Simulator (Right Column) -->
+      <div class="lg:col-span-7 flex items-center justify-center">
+        <div class="w-full max-w-[420px] h-[600px] rounded-[40px] border-[12px] border-gray-800 bg-brand-dark shadow-2xl relative overflow-hidden flex flex-col">
+          
+          <!-- Camera/Speaker notch -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-6 bg-gray-800 rounded-b-2xl z-20 flex items-center justify-center">
+            <div class="w-16 h-1 bg-gray-900 rounded-full mb-1"></div>
+          </div>
+          
+          <!-- Chat Header -->
+          <div class="bg-[#075E54] dark:bg-[#128C7E] px-6 pt-8 pb-4 flex items-center gap-3 relative z-10 shrink-0 shadow-md">
+            <div class="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-sm">
+              H
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-white font-display flex items-center gap-1.5">
+                Handl Assistant
+                <span class="inline-block h-2 w-2 rounded-full bg-[#25D366] animate-pulse"></span>
+              </div>
+              <div class="text-[10px] text-white/80">Cuenta comercial • En línea</div>
+            </div>
+          </div>
+
+          <!-- Chat Messages Area -->
+          <div id="chat-messages-container" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3.5 bg-[#efeae2] dark:bg-[#0b141a]">
+            <!-- Messages are injected here by JS -->
+          </div>
+
+          <!-- Typing Indicator -->
+          <div id="typing-indicator" class="hidden px-4 py-2 bg-[#efeae2] dark:bg-[#0b141a] flex items-center gap-2 text-xs text-gray-500 italic shrink-0">
+            <div class="flex gap-1 items-center shrink-0">
+              <span class="h-1.5 w-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+              <span class="h-1.5 w-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+              <span class="h-1.5 w-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+            </div>
+            Handl está escribiendo...
+          </div>
+
+          <!-- Chat Footer Input Area -->
+          <div class="bg-[#f0f2f5] dark:bg-[#1f2c34] px-4 py-3 flex items-center gap-3 shrink-0 border-t border-white/5">
+            <div class="flex-1 bg-white dark:bg-[#2a3942] rounded-full px-4 py-2 text-xs text-gray-400 dark:text-gray-300 shadow-sm">
+              Responder está inhabilitado en la demo
+            </div>
+            <div class="h-8 w-8 rounded-full bg-[#128C7E] flex items-center justify-center text-white">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scenario Datasets
+  type Message = {
+    sender: 'user' | 'bot' | 'tool';
+    text: string;
+  };
+
+  const SCENARIOS: Record<string, Message[]> = {
+    medical: [
+      { sender: 'user', text: 'Hola, buenas tardes. Necesito agendar una cita urgente con el dentista, me duele mucho una muela.' },
+      { sender: 'bot', text: 'Hola. Lamento mucho escuchar que tienes dolor de muela. Con gusto te ayudo a agendar una cita de urgencia de inmediato.' },
+      { sender: 'bot', text: 'Para asignarte el mejor horario y especialista, ¿el dolor es constante o solo al masticar/beber algo frío?' },
+      { sender: 'user', text: 'Es constante, no me deja dormir desde anoche.' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: check_availability(specialty: "dental_urgency", limit: 3)' },
+      { sender: 'bot', text: 'Entendido, Andrés. Definitivamente califica como una urgencia. Tengo disponible hoy mismo a las 4:00 PM o mañana a las 9:30 AM con la Dra. Sofía Ramos. ¿Te queda bien alguno?' },
+      { sender: 'user', text: 'El de hoy a las 4:00 PM por favor.' },
+      { sender: 'bot', text: 'Perfecto. Para completar el registro, ¿me podrías confirmar tu nombre completo y tu correo electrónico?' },
+      { sender: 'user', text: 'Andrés Mendoza, andres.mendoza@email.com' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: schedule_meeting(name: "Andrés Mendoza", email: "andres.mendoza@email.com", time: "2026-06-02T16:00:00", details: "Urgencia dental - Dolor de muela constante")' },
+      { sender: 'tool', text: '📅 Google Calendar: Reunión programada exitosamente. Enlace Google Meet generado.' },
+      { sender: 'bot', text: '¡Listo, Andrés! Tu cita está confirmada para hoy a las 4:00 PM. Acabo de enviar una invitación a tu correo con los detalles y el enlace de Google Meet por si requieres teleconsulta previa. ¡Nos vemos pronto!' }
+    ],
+    restaurant: [
+      { sender: 'user', text: 'Hola! Quiero reservar una mesa para cenar hoy en la noche. ¿Tienen espacio?' },
+      { sender: 'bot', text: '¡Hola! Qué gusto saludarte. Claro que sí, con mucho gusto gestiono tu reserva para esta noche.' },
+      { sender: 'bot', text: '¿Para cuántas personas sería la mesa y a qué hora les gustaría venir?' },
+      { sender: 'user', text: 'Seríamos 4 personas, a las 8:30 PM. ¿Tienen en la terraza?' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: check_restaurant_availability(date: "2026-06-02", time: "20:30", guests: 4, zone: "terrace")' },
+      { sender: 'bot', text: '¡Excelente noticia! Sí tenemos una mesa disponible para 4 personas en nuestra terraza a las 8:30 PM.' },
+      { sender: 'bot', text: 'Antes de confirmar, ¿alguno de los comensales tiene alguna alergia o restricción alimenticia que debamos considerar?' },
+      { sender: 'user', text: 'Sí, una es vegana.' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: save_dietary_restrictions(guests: 4, vegan: 1)' },
+      { sender: 'bot', text: 'Anotado. Nuestro chef preparará opciones especiales de nuestro menú vegano para ella. ¿A nombre de quién hacemos la reserva y a qué correo te envío la confirmación?' },
+      { sender: 'user', text: 'A nombre de Camila Beltrán, camila@email.com' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: create_booking(name: "Camila Beltrán", email: "camila@email.com", guests: 4, date: "2026-06-02T20:30:00", zone: "terrace")' },
+      { sender: 'bot', text: '¡Tu mesa en la terraza está reservada, Camila! Te esperamos hoy a las 8:30 PM para 4 personas. Te acabo de enviar el correo de confirmación. ¡Buen provecho!' }
+    ],
+    realestate: [
+      { sender: 'user', text: 'Hola, vi el anuncio de la casa en Bosques del Valle. ¿Sigue disponible?' },
+      { sender: 'bot', text: '¡Hola! Gracias por tu interés. Sí, la propiedad en Bosques del Valle sigue disponible y es una excelente opción.' },
+      { sender: 'bot', text: 'Para brindarte una mejor atención, ¿esta propiedad sería para habitarla tú o la buscas como inversión?' },
+      { sender: 'user', text: 'Es para mí y mi familia.' },
+      { sender: 'bot', text: 'Maravilloso, es una zona muy familiar y segura. ¿Cuentas ya con un crédito pre-aprobado (ej. Infonavit, bancario) o planeas una compra de contado?' },
+      { sender: 'user', text: 'Tengo un crédito de Infonavit pero no sé si me alcance.' },
+      { sender: 'bot', text: 'No te preocupes, te podemos ayudar a validarlo.' },
+      { sender: 'bot', text: '¿Me podrías indicar cuál es tu presupuesto aproximado de compra o el monto pre-aprobado que te marca tu cuenta?' },
+      { sender: 'user', text: 'Tengo pre-aprobado $1.2 millones de pesos.' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: qualify_lead(budget: 1200000, target_property_price: 1350000)' },
+      { sender: 'bot', text: 'Perfecto, la casa está listada en $1.35 millones de pesos, por lo que estamos muy cerca del presupuesto. Podemos coordinar una llamada con uno de nuestros asesores certificados para ver opciones de cofinanciamiento y agendar una visita física.' },
+      { sender: 'bot', text: '¿Te interesaría que te agende una llamada de 10 minutos mañana a las 11:00 AM?' },
+      { sender: 'user', text: 'Sí claro, me parece muy bien.' },
+      { sender: 'tool', text: '🔧 Ejecutando herramienta: schedule_advisor_call(name: "Roberto Pérez", phone: "+52...", time: "mañana 11:00 AM", status: "qualified_lead")' },
+      { sender: 'bot', text: '¡Excelente, Roberto! Un asesor hipotecario te llamará mañana puntualmente a las 11:00 AM para ayudarte con la validación de tu crédito y agendar la visita a la casa de tus sueños. ¡Que tengas un excelente día!' }
+    ]
+  };
+
+  let currentTimer: number | null = null;
+
+  function runScenario(scenName: string) {
+    const container = document.getElementById('chat-messages-container');
+    const typing = document.getElementById('typing-indicator');
+    if (!container) return;
+
+    // Reset container and active timers
+    container.innerHTML = '';
+    if (currentTimer) {
+      clearTimeout(currentTimer);
+    }
+    
+    const messages = SCENARIOS[scenName];
+    if (!messages) return;
+
+    let index = 0;
+
+    function showNextMessage() {
+      if (index >= messages.length) {
+        if (typing) typing.classList.add('hidden');
+        return;
+      }
+
+      const msg = messages[index];
+      
+      // If it's a bot message, show typing indicator first
+      if (msg.sender === 'bot') {
+        if (typing) typing.classList.remove('hidden');
+        container.scrollTop = container.scrollHeight;
+        
+        currentTimer = window.setTimeout(() => {
+          if (typing) typing.classList.add('hidden');
+          renderMessage(msg);
+          index++;
+          currentTimer = window.setTimeout(showNextMessage, 1000);
+        }, 1500);
+      } else if (msg.sender === 'tool') {
+        if (typing) typing.classList.add('hidden');
+        // Show tool execution instantly
+        renderMessage(msg);
+        index++;
+        currentTimer = window.setTimeout(showNextMessage, 1200);
+      } else {
+        if (typing) typing.classList.add('hidden');
+        // Show user message after a short wait
+        currentTimer = window.setTimeout(() => {
+          renderMessage(msg);
+          index++;
+          currentTimer = window.setTimeout(showNextMessage, 600);
+        }, 800);
+      }
+    }
+
+    function renderMessage(msg: Message) {
+      const bubble = document.createElement('div');
+      bubble.style.opacity = '0';
+      bubble.style.transform = 'translateY(10px)';
+      bubble.style.transition = 'all 0.3s ease-out';
+
+      if (msg.sender === 'user') {
+        bubble.className = 'self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-gray-100 p-3 rounded-2xl rounded-tr-none max-w-[80%] text-xs shadow-sm self-end align-right';
+        bubble.textContent = msg.text;
+      } else if (msg.sender === 'bot') {
+        bubble.className = 'self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-gray-100 p-3 rounded-2xl rounded-tl-none max-w-[80%] text-xs shadow-sm self-start';
+        bubble.textContent = msg.text;
+      } else {
+        // System / Tool Call
+        bubble.className = 'w-full text-center py-1.5 px-3 bg-brand-purple/10 border border-brand-purple/20 text-brand-purple rounded-xl text-[10px] font-mono leading-relaxed max-w-[90%] mx-auto my-1';
+        bubble.textContent = msg.text;
+      }
+
+      container.appendChild(bubble);
+      
+      // Trigger reflow & fade in
+      setTimeout(() => {
+        bubble.style.opacity = '1';
+        bubble.style.transform = 'translateY(0)';
+        container.scrollTop = container.scrollHeight;
+      }, 50);
+    }
+
+    showNextMessage();
+  }
+
+  // Bind Buttons
+  const buttons = {
+    medical: document.getElementById('btn-scen-medical'),
+    restaurant: document.getElementById('btn-scen-restaurant'),
+    realestate: document.getElementById('btn-scen-realestate')
+  };
+
+  function selectBtn(activeName: string) {
+    Object.entries(buttons).forEach(([name, btn]) => {
+      if (!btn) return;
+      if (name === activeName) {
+        btn.classList.add('border-brand-purple/20', 'bg-brand-purple/5');
+        btn.classList.remove('border-white/5', 'bg-white/[0.02]');
+        // Highlight borders appropriately based on hover gradients
+        if (name === 'restaurant') {
+          btn.classList.add('border-brand-green/20', 'bg-brand-green/5');
+          btn.classList.remove('border-brand-purple/20', 'bg-brand-purple/5');
+        } else if (name === 'realestate') {
+          btn.classList.add('border-blue-500/20', 'bg-blue-500/5');
+          btn.classList.remove('border-brand-purple/20', 'bg-brand-purple/5');
+        }
+      } else {
+        btn.className = 'scenario-btn text-left p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300 group';
+      }
+    });
+  }
+
+  buttons.medical?.addEventListener('click', () => {
+    selectBtn('medical');
+    runScenario('medical');
+  });
+
+  buttons.restaurant?.addEventListener('click', () => {
+    selectBtn('restaurant');
+    runScenario('restaurant');
+  });
+
+  buttons.realestate?.addEventListener('click', () => {
+    selectBtn('realestate');
+    runScenario('realestate');
+  });
+
+  // Run medical scenario by default on load
+  runScenario('medical');
+</script>

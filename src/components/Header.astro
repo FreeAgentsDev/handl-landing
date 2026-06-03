@@ -1,0 +1,129 @@
+---
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-white/5 bg-brand-dark/70 backdrop-blur-md transition-all duration-300">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-brand-purple to-brand-green p-[1px] transition-transform duration-300 group-hover:scale-105">
+        <div class="flex h-full w-full items-center justify-center rounded-[11px] bg-brand-dark text-white font-bold text-lg font-display">
+          H
+        </div>
+        <!-- Dot indicator -->
+        <span class="absolute -top-0.5 -right-0.5 flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-green"></span>
+        </span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-display text-lg font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-brand-purple">
+          Handl
+        </span>
+        <span class="text-[10px] uppercase tracking-wider text-gray-500 font-sans -mt-1">
+          by freeagents
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+      <a href="#casos" class="hover:text-white transition-colors duration-200">Casos de Uso</a>
+      <a href="#demo" class="hover:text-white transition-colors duration-200">Demo En Vivo</a>
+      <a href="#features" class="hover:text-white transition-colors duration-200">Características</a>
+      <a href="#cumplimiento" class="hover:text-white transition-colors duration-200">Políticas 2026</a>
+      <a href="#arquitectura" class="hover:text-white transition-colors duration-200">Arquitectura</a>
+    </nav>
+
+    <!-- Call to Action -->
+    <div class="hidden md:flex items-center gap-4">
+      <a 
+        href="https://github.com/FreeAgentsDev/Fa-setter" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="text-gray-400 hover:text-white transition-colors text-sm"
+      >
+        GitHub
+      </a>
+      <a 
+        href="#contacto" 
+        class="relative inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-purple to-brand-green p-[1.5px] font-medium text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+      >
+        <span class="rounded-[10px] bg-brand-dark px-4 py-2 text-sm transition-colors duration-300 hover:bg-transparent">
+          Obtener Acceso
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden flex items-center p-2 text-gray-400 hover:text-white focus:outline-none" aria-label="Toggle Menu">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-white/5 bg-brand-dark/95 backdrop-blur-lg px-6 py-4 transition-all duration-300">
+    <nav class="flex flex-col gap-4 text-gray-300 text-sm">
+      <a href="#casos" class="mobile-link py-2 border-b border-white/5 hover:text-white transition-colors">Casos de Uso</a>
+      <a href="#demo" class="mobile-link py-2 border-b border-white/5 hover:text-white transition-colors">Demo En Vivo</a>
+      <a href="#features" class="mobile-link py-2 border-b border-white/5 hover:text-white transition-colors">Características</a>
+      <a href="#cumplimiento" class="mobile-link py-2 border-b border-white/5 hover:text-white transition-colors">Políticas 2026</a>
+      <a href="#arquitectura" class="mobile-link py-2 hover:text-white transition-colors">Arquitectura</a>
+      
+      <div class="mt-4 flex flex-col gap-3">
+        <a 
+          href="https://github.com/FreeAgentsDev/Fa-setter" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="flex items-center justify-center py-2 text-gray-400 hover:text-white transition-colors text-center border border-white/10 rounded-xl"
+        >
+          GitHub
+        </a>
+        <a 
+          href="#contacto" 
+          class="mobile-link flex items-center justify-center bg-gradient-to-r from-brand-purple to-brand-green p-[1px] rounded-xl text-center font-medium"
+        >
+          <span class="w-full rounded-[11px] bg-brand-dark py-2.5 text-white">
+            Obtener Acceso
+          </span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+  const links = document.querySelectorAll('.mobile-link');
+
+  btn?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
+    if (isHidden) {
+      menu?.classList.remove('hidden');
+      icon?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    } else {
+      menu?.classList.add('hidden');
+      icon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    }
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      icon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+  });
+
+  // Dynamic header blur adjustment on scroll
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header?.classList.add('shadow-lg', 'shadow-brand-dark/40');
+    } else {
+      header?.classList.remove('shadow-lg', 'shadow-brand-dark/40');
+    }
+  });
+</script>

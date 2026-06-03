@@ -1,0 +1,81 @@
+---
+const FEATURES = [
+  {
+    title: "Aislamiento Estricto Multi-Tenant",
+    description: "Cada empresa cliente opera en un workspace aislado. Las queries y los webhooks se enrutan de forma segura validando el HMAC específico y su respectivo orgId.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>`
+  },
+  {
+    title: "Facturación Precisa de IA",
+    description: "Rastreamos cada llamada de OpenAI en microcentavos agregándolos a la tabla llm_usage por organización, lo que te permite facturar exactamente lo consumido.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`
+  },
+  {
+    title: "Google Calendar & Meet OAuth",
+    description: "Cada cliente final realiza la autorización oficial de Google. El bot busca huecos en sus agendas, crea el evento directamente y asocia el link de Google Meet.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`
+  },
+  {
+    title: "Cifrado AES-256-GCM At-Rest",
+    description: "Los tokens de acceso de WhatsApp Business (WABA), App Secrets y refresh tokens de Google se almacenan totalmente cifrados con algoritmos criptográficos robustos.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11.571V9a4 4 0 00-8 0v1.571c0 1.948.31 3.821.883 5.578M12 11a13.908 13.908 0 005.247 8.04l.054.09M22 10.571V9a4 4 0 00-8 0v1.571c0 1.948-.31 3.821-.883 5.578"/></svg>`
+  },
+  {
+    title: "Onboarding Fluido por Invitación",
+    description: "Como plataforma administrador, generas links de invitación únicos de 7 días. Tus clientes se auto-registran y configuran sus números sin fricciones.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>`
+  },
+  {
+    title: "Control de Flujo Asíncrono",
+    description: "Equipado con BullMQ y Redis para manejar picos de tráfico. Encolamiento de eventos de webhook de Meta y enrutado de respuestas para evitar cuellos de botella.",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`
+  }
+];
+---
+
+<section id="features" class="py-20 relative overflow-hidden bg-brand-dark border-t border-white/5">
+  <!-- Subtle purple blur -->
+  <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-purple/5 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  
+  <div class="mx-auto max-w-7xl px-6">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-brand-purple/30 bg-brand-purple/10 px-3 py-1 text-xs text-brand-purple font-medium mb-4">
+          Arquitectura SaaS
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+          Construido Para Escalar Como un Negocio Real
+        </h2>
+      </div>
+      <p class="text-gray-400 max-w-md leading-relaxed">
+        Handl no es solo un script de automatización. Es una infraestructura robusta diseñada bajo estándares multi-tenant y de seguridad empresarial listos para producción.
+      </p>
+    </div>
+
+    <!-- Features Bento-Grid style -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {FEATURES.map((feat) => (
+        <div class="group relative overflow-hidden rounded-2xl border border-white/5 bg-brand-surface/30 p-8 backdrop-blur-xl transition-all duration-300 hover:border-brand-purple/20 hover:bg-brand-surface/40">
+          <!-- Hover light border effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-brand-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+          
+          <!-- Icon -->
+          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-purple/10 text-brand-purple mb-6 group-hover:scale-110 transition-transform">
+            <Fragment set:html={feat.icon} />
+          </div>
+
+          <!-- Title -->
+          <h3 class="font-display text-lg font-bold text-white mb-3">
+            {feat.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-xs text-gray-400 leading-relaxed">
+            {feat.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
