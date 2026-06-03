@@ -5,11 +5,10 @@ const USE_CASES = [
     tag: "Salud y Bienestar",
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
     color: "from-brand-purple to-indigo-500",
-    integration: "Google Calendar & Meet",
     details: [
       "Agendamiento automático de consultas físicas y teleconsultas.",
       "Pre-calificación del paciente mediante preguntas de síntomas básicos.",
-      "Recordatorios automáticos 2h antes de la cita para reducir inasistencias."
+      "Recordatorios automáticos antes de la cita para reducir inasistencias."
     ]
   },
   {
@@ -17,11 +16,10 @@ const USE_CASES = [
     tag: "Hostelería",
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
     color: "from-brand-green to-teal-500",
-    integration: "Mesa Manager & Calendar",
     details: [
       "Reservas automáticas para mesas de grupos grandes o parejas.",
       "Pregunta y registro de restricciones dietéticas (alergias, vegano).",
-      "Listas de espera automáticas cuando la terraza o salón se llenan."
+      "Listas de espera automáticas cuando el local se llena."
     ]
   },
   {
@@ -29,10 +27,9 @@ const USE_CASES = [
     tag: "Bienes Raíces",
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
     color: "from-blue-500 to-cyan-500",
-    integration: "Custom CRM & WhatsApp API",
     details: [
       "Calificación de presupuesto y enganche de leads interesados.",
-      "Envío instantáneo de fichas técnicas en PDF por el mismo chat.",
+      "Envío instantáneo de fichas técnicas por el mismo chat.",
       "Agendamiento de visitas presenciales con el asesor de la zona."
     ]
   },
@@ -41,7 +38,6 @@ const USE_CASES = [
     tag: "Educación",
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20"/></svg>`,
     color: "from-yellow-500 to-amber-500",
-    integration: "LMS Integración",
     details: [
       "Inscripción automatizada a webinars o clases de prueba gratuitas.",
       "Respuestas rápidas sobre costos, horarios y temarios disponibles.",
@@ -49,15 +45,14 @@ const USE_CASES = [
     ]
   },
   {
-    title: "Soporte y SaaS",
-    tag: "Tecnología",
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: "Servicios Profesionales",
+    tag: "Servicios",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
     color: "from-pink-500 to-rose-500",
-    integration: "Fastify Webhooks & Drizzle",
     details: [
-      "Filtro inicial y categorización de reportes de errores (bugs).",
+      "Filtro inicial y categorización de consultas o solicitudes.",
       "Respuestas autónomas a preguntas frecuentes de facturación.",
-      "Handoff automático a humanos cuando se detectan palabras de frustración."
+      "Transferencia automática a humanos cuando es necesario."
     ]
   },
   {
@@ -65,11 +60,10 @@ const USE_CASES = [
     tag: "Servicios del Hogar",
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>`,
     color: "from-purple-500 to-indigo-600",
-    integration: "Calendly o Calendar Direct",
     details: [
-      "Cotización dinámica basada en metros cuadrados y nivel de suciedad.",
-      "Registro inmediato de la dirección y datos de contacto en DB.",
-      "Agendamiento de la visita del personal y cobro de anticipos."
+      "Cotización dinámica basada en tipo de servicio y tamaño.",
+      "Registro inmediato de la dirección y datos de contacto.",
+      "Agendamiento de la visita del personal y confirmación automática."
     ]
   }
 ];
@@ -82,13 +76,13 @@ const USE_CASES = [
     <!-- Header Section -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <div class="inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/10 px-3 py-1 text-xs text-brand-green font-medium mb-4">
-        Solución sectorial
+        Casos de Uso
       </div>
       <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
-        Diseñado para Cualquier Tipo de Negocio
+        Handl se Adapta a Cualquier Tipo de Negocio
       </h2>
       <p class="text-gray-400">
-        Cada organización (tenant) puede definir la personalidad, FAQs y criterios de calificación del bot según sus objetivos comerciales específicos.
+        Ya sea una clínica, restaurante o agencia inmobiliaria, el recepcionista virtual se personaliza según las necesidades específicas de tu industria.
       </p>
     </div>
 
@@ -125,12 +119,6 @@ const USE_CASES = [
               </li>
             ))}
           </ul>
-
-          <!-- Integration info -->
-          <div class="border-t border-white/5 pt-4 flex items-center justify-between text-[11px] text-gray-500 font-mono">
-            <span>Integración base:</span>
-            <span class="text-gray-300 font-semibold">{useCase.integration}</span>
-          </div>
         </div>
       ))}
     </div>
